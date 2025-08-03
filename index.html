@@ -1,0 +1,38 @@
+<!-- 💸 UPI Support Section -->
+<section id="upi-support" style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #1a1a1a, #0f0f0f); font-family: 'Poppins', sans-serif; padding: 2rem;">
+  <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(16px); border-radius: 24px; max-width: 420px; width: 100%; text-align: center; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.4); animation: fadeIn 1s ease-in;">
+    
+    <h2 style="color: #ffffff; font-size: 1.7rem; margin-bottom: 0.5rem;">💸 Support Me via UPI</h2>
+    <p style="color: #ccc; font-size: 0.95rem; margin-bottom: 1.5rem;">Scan with any UPI app – PhonePe, GPay, Paytm, etc.</p>
+
+    <img src="assets/upi-phonepe-rayyan.png" alt="Rayyan UPI QR" style="width: 240px; border-radius: 12px; box-shadow: 0 0 20px rgba(143, 95, 232, 0.4); margin-bottom: 1.2rem;">
+
+    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 0.3rem;">or use UPI ID:</p>
+    <p id="upi-id" style="font-weight: bold; color: #fff; font-size: 1rem;">6369612671@ybl</p>
+
+    <button onclick="copyUPIID()" style="margin-top: 1rem; padding: 10px 20px; background-color: #8f5fe8; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.2s ease;">
+      📋 Copy UPI ID
+    </button>
+
+    <div id="toast" style="opacity: 0; margin-top: 1rem; color: #8f5fe8; font-size: 0.9rem; transition: opacity 0.4s ease;">UPI ID copied!</div>
+  </div>
+</section>
+
+<!-- 💻 Script -->
+<script>
+  function copyUPIID() {
+    const upi = document.getElementById('upi-id').innerText;
+    navigator.clipboard.writeText(upi);
+    const toast = document.getElementById('toast');
+    toast.style.opacity = '1';
+    setTimeout(() => toast.style.opacity = '0', 2000);
+  }
+</script>
+
+<!-- 💅 Optional Animation -->
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
