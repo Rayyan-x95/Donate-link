@@ -1,38 +1,878 @@
-<!-- 💸 UPI Support Section -->
-<section id="upi-support" style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #1a1a1a, #0f0f0f); font-family: 'Poppins', sans-serif; padding: 2rem;">
-  <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(16px); border-radius: 24px; max-width: 420px; width: 100%; text-align: center; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.4); animation: fadeIn 1s ease-in;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Rayyan Donate link</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Modern Color Palette */
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --primary-dark: #4f46e5;
+      --secondary: #10b981;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      
+      /* Animation */
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--dark);
+      padding: 1rem;
+    }
+
+    /* Floating Background Elements */
+    .bg-blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      z-index: 0;
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .blob-1 {
+      width: 400px;
+      height: 400px;
+      background: var(--primary);
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .blob-2 {
+      width: 500px;
+      height: 500px;
+      background: var(--secondary);
+      bottom: -150px;
+      right: -100px;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(50px, 50px);
+      }
+    }
+
+    /* Main Card */
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Card Header */
+    .card-header {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 60%
+      );
+      transform: rotate(30deg);
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 1;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .card-icon i {
+      font-size: 1.25rem;
+    }
+
+    .card-name {
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+
+    .flip-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+      z-index: 1;
+    }
+
+    .flip-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    /* Card Content */
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card-description {
+      color: var(--gray);
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding: 0 0.5rem;
+    }
+
+    /* UPI ID Section */
+    .upi-section {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .upi-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .upi-label {
+      color: var(--gray);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .upi-label i {
+      font-size: 0.9rem;
+    }
+
+    .upi-id {
+      font-family: 'Courier New', monospace;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 0.75rem;
+      background: rgba(0, 0, 0, 0.02);
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      word-break: break-all;
+      transition: var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .upi-id::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+      );
+      transform: translateX(-100%);
+    }
+
+    .upi-id:hover {
+      background: rgba(0, 0, 0, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .upi-id:hover::after {
+      animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .action-btn {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 12px;
+      border: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .action-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      transform: translateX(-100%);
+    }
+
+    .action-btn:hover::after {
+      animation: shimmer 1.5s infinite;
+    }
+
+    .copy-btn {
+      background: var(--light);
+      color: var(--primary);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .copy-btn:hover {
+      background: rgba(99, 102, 241, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(99, 102, 241, 0.1);
+    }
+
+    .pay-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3), 0 2px 4px -1px rgba(99, 102, 241, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .pay-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      opacity: 0;
+      transition: var(--transition-fast);
+      z-index: -1;
+    }
+
+    .pay-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3), 0 4px 6px -2px rgba(99, 102, 241, 0.2);
+    }
+
+    .pay-btn:hover::before {
+      opacity: 1;
+    }
+
+    /* QR Code Section (Hidden by default) */
+    .qr-section {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .qr-code {
+      background: white;
+      padding: 1.25rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .qr-code::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .qr-code img {
+      width: 200px;
+      height: 200px;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .qr-instructions {
+      color: var(--gray);
+      font-size: 0.85rem;
+      text-align: center;
+      max-width: 80%;
+      line-height: 1.5;
+    }
+
+    .back-btn {
+      width: 100%;
+      max-width: 220px;
+      padding: 0.75rem;
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .back-btn:hover {
+      background: rgba(0, 0, 0, 0.02);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .back-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.05),
+        transparent
+      );
+      transform: translateX(-100%);
+    }
+
+    .back-btn:hover::after {
+      animation: shimmer 1.5s infinite;
+    }
+
+    /* Social Links */
+    .social-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .social-label {
+      color: var(--gray);
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      transition: var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-link::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0)
+      );
+      transform: translate(-100%, -100%) rotate(45deg);
+      transition: var(--transition-fast);
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .social-link:hover::after {
+      transform: translate(100%, 100%) rotate(45deg);
+    }
+
+    .social-link.github:hover {
+      color: white;
+      background: #333;
+    }
+
+    .social-link.twitter:hover {
+      color: white;
+      background: #1da1f2;
+    }
+
+    .social-link.linkedin:hover {
+      color: white;
+      background: #0077b5;
+    }
+
+    .social-link.instagram:hover {
+      color: white;
+      background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 100;
+      transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .toast.show {
+      bottom: 30px;
+      animation: toastBounce 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    }
+
+    @keyframes toastBounce {
+      0% { bottom: -100px; }
+      50% { bottom: 40px; }
+      100% { bottom: 30px; }
+    }
+
+    .toast i {
+      font-size: 1.1rem;
+    }
+
+    .toast.success i {
+      color: var(--secondary);
+    }
+
+    /* Loading Animation */
+    .loader {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 10;
+      border-radius: 24px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .loader.active {
+      display: flex;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(99, 102, 241, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loader-text {
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+      .card {
+        max-width: 100%;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+      
+      .action-btn {
+        width: 100%;
+      }
+      
+      .qr-code img {
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    /* Flip Animation */
+    .flipped .upi-section {
+      display: none;
+    }
+
+    .flipped .qr-section {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Elements -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  
+  <!-- Main Card -->
+  <div class="card">
+    <!-- Loading Overlay -->
+    <div class="loader" id="loader">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Processing...</div>
+    </div>
     
-    <h2 style="color: #ffffff; font-size: 1.7rem; margin-bottom: 0.5rem;">💸 Support Me via UPI</h2>
-    <p style="color: #ccc; font-size: 0.95rem; margin-bottom: 1.5rem;">Scan with any UPI app – PhonePe, GPay, Paytm, etc.</p>
-
-    <img src="assets/upi-phonepe-rayyan.png" alt="Rayyan UPI QR" style="width: 240px; border-radius: 12px; box-shadow: 0 0 20px rgba(143, 95, 232, 0.4); margin-bottom: 1.2rem;">
-
-    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 0.3rem;">or use UPI ID:</p>
-    <p id="upi-id" style="font-weight: bold; color: #fff; font-size: 1rem;">6369612671@ybl</p>
-
-    <button onclick="copyUPIID()" style="margin-top: 1rem; padding: 10px 20px; background-color: #8f5fe8; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.2s ease;">
-      📋 Copy UPI ID
-    </button>
-
-    <div id="toast" style="opacity: 0; margin-top: 1rem; color: #8f5fe8; font-size: 0.9rem; transition: opacity 0.4s ease;">UPI ID copied!</div>
+    <!-- Card Header -->
+    <div class="card-header">
+      <div class="card-title">
+        <div class="card-icon">
+          <i class="fas fa-wallet"></i>
+        </div>
+        <h2 class="card-name">UPI Payment</h2>
+      </div>
+      <button class="flip-btn" onclick="toggleFlip()" aria-label="Toggle QR Code">
+        <i class="fas fa-qrcode"></i>
+      </button>
+    </div>
+    
+    <!-- Card Content -->
+    <div class="card-content">
+      <p class="card-description">Send money using my UPI ID or scan the QR code</p>
+      
+      <!-- UPI ID Section (Default View) -->
+      <div class="upi-section">
+        <p class="upi-label">
+          <i class="fas fa-id-card"></i>
+          MY UPI ID
+        </p>
+        <p id="upi-id" class="upi-id">6369612671@ybl</p>
+        <div class="action-buttons">
+          <button class="action-btn copy-btn" onclick="copyUPI()" aria-label="Copy UPI ID">
+            <i class="far fa-copy"></i>
+            Copy
+          </button>
+          <button class="action-btn pay-btn" onclick="openUPI()" aria-label="Pay Now">
+            <i class="fas fa-paper-plane"></i>
+            Pay Now
+          </button>
+        </div>
+      </div>
+      
+      <!-- QR Code Section (Hidden by default) -->
+      <div class="qr-section">
+        <div class="qr-code">
+          <img src="assets/upi-phonepe-rayyan.png" alt="UPI QR Code">
+        </div>
+        <p class="qr-instructions">Scan this QR code with any UPI payment app to send money instantly</p>
+        <button class="back-btn" onclick="toggleFlip()" aria-label="Back to UPI ID">
+          <i class="fas fa-arrow-left"></i>
+          Back to UPI ID
+        </button>
+      </div>
+      
+      <!-- Social Links -->
+      <div class="social-section">
+        <p class="social-label">
+          <i class="fas fa-share-alt"></i>
+          Connect with me
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/yourusername" class="social-link github" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/yourusername" class="social-link twitter" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com/in/yourusername" class="social-link linkedin" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://instagram.com/yourusername" class="social-link instagram" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+  
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle success"></i>
+    <span id="toast-message">UPI ID copied!</span>
+  </div>
 
-<!-- 💻 Script -->
-<script>
-  function copyUPIID() {
-    const upi = document.getElementById('upi-id').innerText;
-    navigator.clipboard.writeText(upi);
-    const toast = document.getElementById('toast');
-    toast.style.opacity = '1';
-    setTimeout(() => toast.style.opacity = '0', 2000);
-  }
-</script>
+  <script>
+    // Toggle between UPI ID and QR code with animation
+    function toggleFlip() {
+      const card = document.querySelector('.card');
+      card.classList.toggle('flipped');
+      
+      // Haptic feedback if available
+      if (navigator.vibrate) navigator.vibrate(30);
+      
+      // Change button icon based on state
+      const flipBtn = document.querySelector('.flip-btn i');
+      if (card.classList.contains('flipped')) {
+        flipBtn.classList.remove('fa-qrcode');
+        flipBtn.classList.add('fa-id-card');
+      } else {
+        flipBtn.classList.remove('fa-id-card');
+        flipBtn.classList.add('fa-qrcode');
+      }
+    }
 
-<!-- 💅 Optional Animation -->
-<style>
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
+    // Show loading spinner
+    function showLoader() {
+      const loader = document.getElementById('loader');
+      loader.classList.add('active');
+    }
+
+    // Hide loading spinner
+    function hideLoader() {
+      const loader = document.getElementById('loader');
+      loader.classList.remove('active');
+    }
+
+    // Copy UPI ID to clipboard
+    async function copyUPI() {
+      const upiId = document.getElementById('upi-id').innerText;
+      
+      try {
+        await navigator.clipboard.writeText(upiId);
+        showToast('UPI ID copied to clipboard!');
+        
+        // Micro-interaction
+        const upiElement = document.getElementById('upi-id');
+        upiElement.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+          upiElement.style.transform = 'scale(1)';
+        }, 200);
+        
+        // Haptic feedback if available
+        if (navigator.vibrate) navigator.vibrate(50);
+      } catch (err) {
+        showToast('Failed to copy UPI ID');
+        console.error('Failed to copy: ', err);
+      }
+    }
+
+    // Open UPI payment link
+    function openUPI() {
+      const upiId = document.getElementById('upi-id').innerText;
+      
+      showLoader();
+      showToast('Opening payment app...');
+      
+      // Try to open UPI app
+      window.location.href = `upi://pay?pa=${upiId}&pn=Recipient&cu=INR`;
+      
+      // Fallback if UPI app not installed
+      setTimeout(() => {
+        if (!document.hidden) {
+          hideLoader();
+          showToast('No UPI app found. Copy ID instead.');
+        }
+      }, 1500);
+    }
+
+    // Show toast notification
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+      
+      // Set message and type
+      toastMessage.innerText = message;
+      
+      // Reset classes
+      toast.className = 'toast';
+      toast.classList.add('show');
+      
+      // Add type class if provided
+      if (type) {
+        toast.classList.add(type);
+      }
+      
+      // Auto hide after 3 seconds
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Close toast when clicked
+    document.getElementById('toast').addEventListener('click', function() {
+      this.classList.remove('show');
+    });
+
+    // Add ripple effect to buttons
+    document.querySelectorAll('.action-btn, .back-btn, .flip-btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Add keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const card = document.querySelector('.card');
+        if (card.classList.contains('flipped')) {
+          toggleFlip();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
